@@ -1,0 +1,22 @@
+.wc-grid { align-items: start; }
+.wc-pass { flex-wrap: nowrap; gap: 6px; }
+.wc-hidden { align-self: end; padding-bottom: 10px; }
+.wc-safe { display: flex; gap: 8px; align-items: flex-start; margin: 0; }
+.wc-safe svg.i { width: 15px; height: 15px; color: var(--ok); margin-top: 1px; }
+.wc-themes { display: flex; gap: 8px; flex-wrap: wrap; }
+.wc-sw { width: 30px; height: 30px; border-radius: 50%; background: var(--sw); border: 2px solid var(--line-strong); transition: transform 120ms; }
+.wc-sw.saver { background: #fff; border: 3px solid #111; }
+.wc-sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent); }
+.wc-sw:hover { transform: scale(1.08); }
+.wc-preview { position: sticky; top: 76px; }
+.wc-stage { display: grid; place-items: center; margin-top: 12px; padding: 18px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
+.wc-stage canvas { width: 100%; max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px -16px rgba(0,0,0,.6); }
+@media (max-width: 760px) { .wc-preview { position: static; } }
+#sheet { display: none; }
+@media print {
+  #sheet { display: block; }
+  .sheet-grid { display: grid; gap: 4mm; justify-content: center; align-content: center; min-height: 100vh; }
+  .sheet-a6 .sheet-grid, .sheet-a4 .sheet-grid { gap: 0; }
+  .sheet-a4x4 img, .sheet-a4x9 img { outline: 0.3mm dashed #999; outline-offset: 1.5mm; }
+  #sheet img { display: block; break-inside: avoid; }
+}

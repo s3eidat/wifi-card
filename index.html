@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Wi-Fi Card — Free Printable Wi-Fi QR Code Card for Guests | S3eidat Tools</title>
+<meta name="description" content="Make a printable Wi-Fi card with a QR code guests scan to join. English and Arabic, A6 or A4, several per page, PNG download. Free and private: your password never leaves your device.">
+<meta property="og:title" content="Wi-Fi Card — free printable Wi-Fi QR card">
+<meta property="og:description" content="Guests scan to join your Wi-Fi. English and Arabic, print or PNG. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+<script src="lib/qrcode.js"></script>
+</head>
+<body data-tool="wifi-card">
+<main class="s3-main no-print">
+  <section class="s3-hero">
+    <h1>Wi-Fi Card</h1>
+    <p>A printable card with a QR code your guests scan to join the Wi-Fi. English, Arabic or both. Your password stays on this device.</p>
+  </section>
+
+  <div class="grid-2 wc-grid">
+    <div class="stack">
+      <section class="card">
+        <h2>Network</h2>
+        <div class="stack">
+          <label class="field">Network name (SSID)<input class="input" id="ssid" dir="auto" autocomplete="off" spellcheck="false" placeholder="Home Wi-Fi" maxlength="64"></label>
+          <label class="field">Password
+            <span class="row wc-pass"><input class="input grow" id="pass" type="password" dir="auto" autocomplete="off" spellcheck="false" placeholder="Wi-Fi password" maxlength="128"><button class="btn small" id="reveal" type="button" aria-pressed="false">Show</button></span>
+          </label>
+          <div class="row">
+            <label class="field grow">Security
+              <select class="select" id="sec">
+                <option value="WPA">WPA / WPA2 / WPA3</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None (open network)</option>
+              </select>
+            </label>
+            <label class="check wc-hidden"><input type="checkbox" id="hidden"> Hidden network</label>
+          </div>
+          <p class="faint wc-safe"><svg class="i"><use href="#i-lock"/></svg> Nothing is sent anywhere. The card is drawn in your browser, and the name and password are not saved.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Card</h2>
+        <div class="stack">
+          <div class="row">
+            <span class="faint">Language</span>
+            <div class="seg" id="lang" role="group" aria-label="Card language">
+              <button aria-pressed="false" data-v="en">English</button>
+              <button aria-pressed="false" data-v="ar">العربية</button>
+              <button aria-pressed="true" data-v="both">Both</button>
+            </div>
+          </div>
+          <div class="row">
+            <span class="faint">Color</span>
+            <div class="wc-themes" id="themes" role="group" aria-label="Card color"></div>
+          </div>
+          <label class="field">Title on the card<input class="input" id="title" dir="auto" maxlength="40" placeholder="Wi-Fi"></label>
+          <label class="check"><input type="checkbox" id="showPass" checked> Print the password on the card</label>
+        </div>
+      </section>
+    </div>
+
+    <section class="card wc-preview">
+      <div class="row between">
+        <h2>Preview</h2>
+        <span class="chip" id="status">Waiting</span>
+      </div>
+      <div class="wc-stage"><canvas id="card" width="1240" height="1754" role="img" aria-label="Wi-Fi card preview"></canvas></div>
+      <label class="field mt">Print layout
+        <select class="select" id="layout">
+          <option value="a6">A6 card (one per page)</option>
+          <option value="a4">A4 poster (one per page)</option>
+          <option value="a4x4" selected>A4 sheet, 4 cards to cut</option>
+          <option value="a4x9">A4 sheet, 9 small cards to cut</option>
+        </select>
+      </label>
+      <div class="row mt">
+        <button class="btn primary grow" id="print"><svg class="i"><use href="#i-file"/></svg>Print</button>
+        <button class="btn grow" id="png"><svg class="i"><use href="#i-download"/></svg>PNG</button>
+      </div>
+      <p class="faint center">Tip: choose “Save as PDF” in the print dialog to get a PDF.</p>
+    </section>
+  </div>
+</main>
+<div id="sheet" aria-hidden="true"></div>
+<script src="app.js"></script>
+</body>
+</html>
